@@ -1,0 +1,39 @@
+We built three serverless endpoints that do complex processing on numbers. We want to expose these three endpoints as one and create a function that takes a list of integers then returns a Map/Dict with the initial value and the result of the endpoint “hitchhiker”.
+
+Example:
+
+hitchhiker([43, 1971, 1992, 2022]) == {43: 42, 1971: 1970, 1992: 1991, 2022: 2021}
+
+Here the list of available endpoints:
+
+Endpoint Hitchhiker. Requires the output of the endpoint Bill and the output of the endpoint Linus then returns the wanted result
+
+Endpoint Bill. Requires an integer and returns the result of the algorithm.
+
+Endpoint Linus. Requires the initial integer + the result of the endpoint Bill and calculates the output.
+
+Interface note:
+
+Hitchhiker:
+
+https://taipy-algorithms.azurewebsites.net/api/HttpTrigger3 
+
+Query arguments: “code”, “linus”, “bill”
+
+Code: sVzxyopyebY2fPv-YJJvmY5IUqB4M6a-2x7iwGH9339SAzFu_Hc5Nw==
+
+Bill:
+
+https://taipy-algorithms.azurewebsites.net/api/HttpTrigger1
+
+Query arguments: “code”, “number”
+
+Code: jsm60ZCLycr7u25YpL0ywPQqGBR0soXwGhP4dx_HzACRAzFu59gikA==
+
+Linus:
+
+https://taipy-algorithms.azurewebsites.net/api/HttpTrigger2 
+
+Query arguments: “code”, “number”, “bill”
+
+Code: wbe-sW9v0_bAmF0XFLNfJl_oF5V623ksHwdWr_BgRRI6AzFu-1JF2Q==
